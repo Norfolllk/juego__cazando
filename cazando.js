@@ -32,10 +32,10 @@ function iniciarJuego() {
   // Gato centrado
   gatoX = (canvas.width  - 50)  / 2;
   gatoY = (canvas.height - 50)   / 2;
-
   comidaX = canvas.width  - ANCHO_COMIDA - 10;
   comidaY = canvas.height - ALTO_COMIDA  - 10;
 
+    graficarRectangulo(0, 0, canvas.width, canvas.height, "white");
     graficarGato();
     graficarComida();
 }
