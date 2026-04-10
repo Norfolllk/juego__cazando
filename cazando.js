@@ -45,6 +45,18 @@ function limpiarCanvas(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+const LIMITE_X = canvas.width - ANCHO_GATO; 
+const LIMITE_Y = canvas.height - ALTO_GATO;
+ 
+function moverIzquierda(){
+   if (gatoX > 0){
+    gatoX -= 10;
+    limpiarCanvas();
+    graficarGato();
+    graficarComida();
+    }
+}
+ 
 document.getElementById("btnArriba").onclick = () => moverArriba();
 document.getElementById("btnAbajo").onclick = () => moverAbajo();
 document.getElementById("btnIzquierda").onclick = () => moverIzquierda();
