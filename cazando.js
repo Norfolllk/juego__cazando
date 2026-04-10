@@ -57,6 +57,33 @@ function moverIzquierda(){
     }
 }
  
+function moverDerecha(){
+    if (gatoX < LIMITE_X){
+    gatoX += 10;
+    limpiarCanvas();
+    graficarGato();
+    graficarComida();
+    }
+}
+ 
+function moverArriba(){
+   if (gatoY > 0){   
+    gatoY -= 10;
+    limpiarCanvas();
+    graficarGato();
+    graficarComida();
+    }
+}
+ 
+function moverAbajo(){
+    if (gatoY < LIMITE_Y){
+    gatoY += 10;
+    limpiarCanvas();
+    graficarGato();
+    graficarComida();
+    }
+}
+ 
 document.getElementById("btnArriba").onclick = () => moverArriba();
 document.getElementById("btnAbajo").onclick = () => moverAbajo();
 document.getElementById("btnIzquierda").onclick = () => moverIzquierda();
