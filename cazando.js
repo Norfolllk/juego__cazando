@@ -54,7 +54,7 @@ function moverIzquierda(){
     limpiarCanvas();
     graficarGato();
     graficarComida();
-    detectarcolision();
+    detectarColision();
     }
 }
  
@@ -64,7 +64,7 @@ function moverDerecha(){
     limpiarCanvas();
     graficarGato();
     graficarComida();
-    detectarcolision();
+    detectarColision();
     }
 }
  
@@ -74,7 +74,7 @@ function moverArriba(){
     limpiarCanvas();
     graficarGato();
     graficarComida();
-    detectarcolision();
+    detectarColision();
     }
 }
  
@@ -84,7 +84,7 @@ function moverAbajo(){
     limpiarCanvas();
     graficarGato();
     graficarComida();
-    detectarcolision();
+    detectarColision();
     }
 }
  
@@ -93,7 +93,7 @@ document.getElementById("btnAbajo").onclick = () => moverAbajo();
 document.getElementById("btnIzquierda").onclick = () => moverIzquierda();
 document.getElementById("btnDerecha").onclick = () => moverDerecha();
 
-function detectarcolision(){
+function detectarColision(){
     if (gatoX < comidaX + ANCHO_COMIDA &&
         gatoX + ANCHO_GATO > comidaX &&
         gatoY < comidaY + ALTO_COMIDA &&
