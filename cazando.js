@@ -54,6 +54,7 @@ function moverIzquierda(){
     limpiarCanvas();
     graficarGato();
     graficarComida();
+    detectarcolision();
     }
 }
  
@@ -63,6 +64,7 @@ function moverDerecha(){
     limpiarCanvas();
     graficarGato();
     graficarComida();
+    detectarcolision();
     }
 }
  
@@ -72,6 +74,7 @@ function moverArriba(){
     limpiarCanvas();
     graficarGato();
     graficarComida();
+    detectarcolision();
     }
 }
  
@@ -81,6 +84,7 @@ function moverAbajo(){
     limpiarCanvas();
     graficarGato();
     graficarComida();
+    detectarcolision();
     }
 }
  
@@ -88,3 +92,12 @@ document.getElementById("btnArriba").onclick = () => moverArriba();
 document.getElementById("btnAbajo").onclick = () => moverAbajo();
 document.getElementById("btnIzquierda").onclick = () => moverIzquierda();
 document.getElementById("btnDerecha").onclick = () => moverDerecha();
+
+function detectarcolision(){
+    if (gatoX < comidaX + ANCHO_COMIDA &&
+        gatoX + ANCHO_GATO > comidaX &&
+        gatoY < comidaY + ALTO_COMIDA &&
+        gatoY + ALTO_GATO > comidaY){
+        alert("¡El gato ha atrapado la comida!");    
+    }
+}
