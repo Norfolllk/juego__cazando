@@ -35,8 +35,7 @@ function graficarComida() {
 };
  
 function iniciarJuego() {
-    setInterval(restarTiempo, 1000);
-
+    
         //GATO INICIAL EN EL CENTRO DEL CANVAS
     gatoX = (canvas.width / 2) - (ANCHO_GATO / 2);
     gatoY = (canvas.height / 2) - (ALTO_GATO / 2);
@@ -117,7 +116,23 @@ function detectarColision(){
     }
 }
 
-function restarTiempo(){
-    tiempo--
-    mostrarEnSpan("tiempo", tiempo);
+function restarTiempo() {
+  let cronometro = setInterval(function () {
+    tiempo--;
+    mostrarEnSpan('tiempo', tiempo);
+
+    if (tiempo <= 0) {
+      alert("Game Over!");
+      clearInterval(cronometro);
+    }
+
+    if (puntaje >= 6) {
+      alert("Ganaste!");
+      clearInterval(cronometro);
+    }
+  }, 1000);
+}
+
+if (!(tiempo <= 0)) {
+  restarTiempo();
 }
