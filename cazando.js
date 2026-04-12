@@ -47,6 +47,7 @@ function iniciarJuego() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     graficarGato();
     graficarComida();
+
 }
  
 function limpiarCanvas(){
@@ -131,8 +132,22 @@ function restarTiempo() {
       clearInterval(cronometro);
     }
   }, 1000);
+  
 }
 
-if (!(tiempo <= 0)) {
-  restarTiempo();
+    if (!(tiempo <= 0)) {
+    restarTiempo();
+    }
+
+
+function reiniciar() {
+    tiempo = 10;
+    puntaje = 0;
+    mostrarEnSpan('tiempo', tiempo);
+    mostrarEnSpan('puntos', puntaje);
+    limpiarCanvas();
+    graficarGato();
+    graficarComida();
+    restarTiempo();
+    iniciarJuego();
 }
