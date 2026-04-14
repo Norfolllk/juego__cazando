@@ -1,0 +1,6 @@
+1. Buenas noches, chat! Analiza únicamente cada adjunto que te entregue, por el momento solo analiza tanto individualmente como en su conjunto.
+
+2. Gracias! Primero la prohibición que tienes la cual consiste en la imposibilidad de modificar el adjunto cazando .js y utils.js ! Ayúdame mejorando la interfaz gráfica del juego moderno
+
+3. Mas bien lienas utilizando utilizando como paleta de colores tron el lageado
+
