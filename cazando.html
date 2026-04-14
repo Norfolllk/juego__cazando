@@ -27,7 +27,7 @@
         </div>
 
         <div class="canvas-container">
-            <canvas id="areajuego" width="500" height="500"></canvas>
+            <canvas id="areajuego" width="600" height="400"></canvas>
         </div>
 
         <div class="controles">
@@ -45,5 +45,34 @@
 
     <script src="cazando.js"></script>
     <script src="utils.js"></script>
+
+    <!-- Override de imágenes: se ejecuta DESPUÉS de cazando.js, sin modificar ese archivo -->
+    <script>
+        const imgGato = new Image();
+        imgGato.src = "icono_gato.JPG";
+
+        const imgComida = new Image();
+        imgComida.src = "icono_comida.JPG";
+
+        // Redefinimos las funciones de dibujo para usar imágenes en lugar de rectángulos
+        function graficarGato() {
+            ctx.drawImage(imgGato, gatoX, gatoY, ANCHO_GATO, ALTO_GATO);
+        }
+
+        function graficarComida() {
+            ctx.drawImage(imgComida, comidaX, comidaY, ANCHO_COMIDA, ALTO_COMIDA);
+        }
+
+        // Reiniciamos el juego una vez que ambas imágenes estén cargadas
+        let imagenesListas = 0;
+        function onImagenLista() {
+            imagenesListas++;
+            if (imagenesListas === 2) {
+                iniciarJuego();
+            }
+        }
+        imgGato.onload = onImagenLista;
+        imgComida.onload = onImagenLista;
+    </script>
 </body>
 </html>
