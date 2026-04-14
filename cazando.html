@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Juego Cazando</title>
+    <title>Cazando</title>
     <link rel="stylesheet" href="cazando.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body onload="iniciarJuego()">
-    <h1>Juego Cazando</h1>
-    <p>Autor: Alexander Garofalo</p>
-    <canvas id="areajuego" width="600" height="400"></canvas>
-    
-    <div class="controles">
-        <button id="btnArriba">↑</button>
-        <br>
-        <button id="btnIzquierda">←</button>
-        <button id="btnAbajo">↓</button>
-        <button id="btnDerecha">→</button>
+
+    <div class="game-wrapper">
+
+        <header class="game-header">
+            <h1 class="titulo-glow">CAZANDO</h1>
+            <p class="autor">por Alexander Garofalo</p>
+        </header>
+
+        <div class="panel">
+            <div class="stat-box">
+                <span class="stat-label">PUNTOS</span>
+                <span class="stat-value" id="puntos">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">TIEMPO</span>
+                <span class="stat-value" id="tiempo">10</span>
+            </div>
+            <button class="btn-reset" onclick="reiniciar()">⟳ RESET</button>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="areajuego" width="500" height="500"></canvas>
+        </div>
+
+        <div class="controles">
+            <button id="btnArriba">↑</button>
+            <br>
+            <button id="btnIzquierda">←</button>
+            <button id="btnAbajo">↓</button>
+            <button id="btnDerecha">→</button>
+        </div>
+
+        <p class="subtitulo-controles">ATRAPA LA COMIDA</p>
+        <p id="mensaje"></p>
+
     </div>
-    
-    <div class="panel">
-        <span>Puntos: <span id="puntos">0</span></span>
-        <span>Tiempo: <span id="tiempo">10</span></span>
-        <button onclick="reiniciar()">Reiniciar</button>
-    </div>
-    
-    <p id="mensaje"></p>
+
     <script src="cazando.js"></script>
     <script src="utils.js"></script>
 </body>
