@@ -1,0 +1,7 @@
+1. Ahora necesito unicamente que me ayudes cambiando el background o fondo relacionado a la paleta que te mencione o pelicula que sea totalmente original y creativa; tambien actualiza tanto la el html como el css y muestra el resultado en patalla ademas del codigo y su descargable; actua como un deseñador grafico profesional
+
+2. vuelve a realizar y cambia el fondo segun lo solicitado por una imagen relacionada
+
+3. corrige; en el canvas tal cual estaba; me refiero al fondo fondo va el gato en la moto; y alli si dentro del canvas sustituyes los cuadros por iconos relacionados
+
+4. Ayudame sustituyendo los iconos y el fondo por las imágenes adjuntadas
