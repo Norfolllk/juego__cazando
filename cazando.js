@@ -17,7 +17,7 @@ const ALTO_COMIDA = 30;
 let puntaje = 0;
 
 // Tiempo
-let tiempo = 10;
+let tiempo = 15;
 
 // Intervalo global
 let cronometro = null;
