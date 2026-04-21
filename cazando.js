@@ -20,7 +20,7 @@ let puntaje = 0;
 let tiempo = 15;
 
 // Intervalo global
-let cronometro = null;
+let cronometro = 15;
 
 function graficarRectangulo(x, y, ancho, alto, color) {
     ctx.fillStyle = color;
@@ -111,7 +111,7 @@ function detectarColision() {
         puntaje++;
         mostrarEnSpan("puntos", puntaje);
 
-        tiempo = 10;
+        tiempo = 15;
         mostrarEnSpan("tiempo", tiempo);
     }
 }
@@ -137,7 +137,7 @@ function restarTiempo() {
 
 function reiniciar() {
     if (cronometro) clearInterval(cronometro);
-    tiempo = 10;
+    tiempo = 0;
     puntaje = 0;
     mostrarEnSpan('tiempo', tiempo);
     mostrarEnSpan('puntos', puntaje);
