@@ -5,11 +5,9 @@
     <link rel="stylesheet" href="cazando.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
-<body onload="iniciarJuego()">
+<body>
 
     <div class="game-wrapper">
-
-        <header class="game-header">
             <h1 class="titulo-glow">CAZANDO</h1>
             <p class="autor">por Alexander Garofalo</p>
         </header>
@@ -45,34 +43,5 @@
 
     <script src="cazando.js"></script>
     <script src="utils.js"></script>
-
-    <!-- Override de imágenes: se ejecuta DESPUÉS de cazando.js, sin modificar ese archivo -->
-    <script>
-        const imgGato = new Image();
-        imgGato.src = "icono_gato.JPG";
-
-        const imgComida = new Image();
-        imgComida.src = "icono_comida.JPG";
-
-        // Redefinimos las funciones de dibujo para usar imágenes en lugar de rectángulos
-        function graficarGato() {
-            ctx.drawImage(imgGato, gatoX, gatoY, ANCHO_GATO, ALTO_GATO);
-        }
-
-        function graficarComida() {
-            ctx.drawImage(imgComida, comidaX, comidaY, ANCHO_COMIDA, ALTO_COMIDA);
-        }
-
-        // Reiniciamos el juego una vez que ambas imágenes estén cargadas
-        let imagenesListas = 0;
-        function onImagenLista() {
-            imagenesListas++;
-            if (imagenesListas === 2) {
-                iniciarJuego();
-            }
-        }
-        imgGato.onload = onImagenLista;
-        imgComida.onload = onImagenLista;
-    </script>
 </body>
 </html>

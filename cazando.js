@@ -26,13 +26,24 @@ let cronometro = 15;
 let tiempoActual = 15;
 const tiempoMinimo = 1;
 
-function incrementarDificultad() {
-    tiempoActual -= 1;
-    if (tiempoActual < tiempoMinimo) {
-        tiempoActual = tiempoMinimo;
+// Cargar la imagen del gato
+const imgGato = new Image();
+imgGato.src = "icono_gato.JPG";  // Usando el nombre del archivo del HTML original
+
+// Cargar la imagen de la comida
+const imgComida = new Image();
+imgComida.src = "icono_comida.JPG";
+
+// Esperar a que ambas imágenes estén cargadas antes de iniciar
+let imagenesListas = 0;
+function onImagenLista() {
+    imagenesListas++;
+    if (imagenesListas === 2) {
+        iniciarJuego();
     }
-    iniciarJuego();
 }
+imgGato.onload = onImagenLista;
+imgComida.onload = onImagenLista;
 
 function graficarRectangulo(x, y, ancho, alto, color) {
     ctx.fillStyle = color;
@@ -40,11 +51,11 @@ function graficarRectangulo(x, y, ancho, alto, color) {
 }
 
 function graficarGato() {
-    graficarRectangulo(gatoX, gatoY, ANCHO_GATO, ALTO_GATO, "#000000");
+    ctx.drawImage(imgGato, gatoX, gatoY, ANCHO_GATO, ALTO_GATO);
 }
 
 function graficarComida() {
-    graficarRectangulo(comidaX, comidaY, ANCHO_COMIDA, ALTO_COMIDA, "#ff0000");
+    ctx.drawImage(imgComida, comidaX, comidaY, ANCHO_COMIDA, ALTO_COMIDA);
 }
 
 function iniciarJuego() {
@@ -53,11 +64,13 @@ function iniciarJuego() {
     comidaX = canvas.width - ANCHO_COMIDA;
     comidaY = canvas.height - ALTO_COMIDA;
 
+    tiempo = tiempoActual;
+    mostrarEnSpan("tiempo", tiempo);
+    
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     graficarGato();
     graficarComida();
     restarTiempo();
-    incrementarDificultad();
 }
 
 function limpiarCanvas() {
@@ -124,10 +137,15 @@ function detectarColision() {
         puntaje++;
         mostrarEnSpan("puntos", puntaje);
         
-
-        tiempo = 15;
-        mostrarEnSpan("tiempo", tiempo);
+        // Incrementar dificultad: reducir tiempo en 1 segundo
+        tiempoActual -= 1;
+        if (tiempoActual < tiempoMinimo) {
+            tiempoActual = tiempoMinimo;
         }
+        
+        tiempo = tiempoActual;
+        mostrarEnSpan("tiempo", tiempo);
+    }
 }
 
 function restarTiempo() {
@@ -151,7 +169,8 @@ function restarTiempo() {
 
 function reiniciar() {
     if (cronometro) clearInterval(cronometro);
-    tiempo = 0;
+    tiempoActual = 15;
+    tiempo = tiempoActual;
     puntaje = 0;
     mostrarEnSpan('tiempo', tiempo);
     mostrarEnSpan('puntos', puntaje);
