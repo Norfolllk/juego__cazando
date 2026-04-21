@@ -22,6 +22,18 @@ let tiempo = 15;
 // Intervalo global
 let cronometro = 15;
 
+//Incremento de dificultad
+let tiempoActual = 15;
+const tiempoMinimo = 1;
+
+function incrementarDificultad() {
+    tiempoActual -= 1;
+    if (tiempoActual < tiempoMinimo) {
+        tiempoActual = tiempoMinimo;
+    }
+    iniciarJuego();
+}
+
 function graficarRectangulo(x, y, ancho, alto, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, ancho, alto);
@@ -45,6 +57,7 @@ function iniciarJuego() {
     graficarGato();
     graficarComida();
     restarTiempo();
+    incrementarDificultad();
 }
 
 function limpiarCanvas() {
@@ -110,10 +123,11 @@ function detectarColision() {
 
         puntaje++;
         mostrarEnSpan("puntos", puntaje);
+        
 
         tiempo = 15;
         mostrarEnSpan("tiempo", tiempo);
-    }
+        }
 }
 
 function restarTiempo() {
